@@ -44,6 +44,7 @@ junit.xml
 cdk.out/
 .cdk.staging/
 .parcel-cache/
+cdk.context.json
 !/.projen/tasks.json
 !/package.json
 !/.npmignore
@@ -54,7 +55,6 @@ cdk.out/
 !/test
 !/.github/workflows/build.yml
 !/.mergify.yml
-!/.github/dependabot.yml
 !/.github/pull_request_template.md
 !/.github/workflows/rebuild-bot.yml
 !/tsconfig.json
