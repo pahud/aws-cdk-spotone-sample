@@ -9,12 +9,46 @@ export class Demo extends cdk.Construct {
     const instanceType = this.node.tryGetContext('instance_type') || 't3.large';
     const eipAllocationId = this.node.tryGetContext('eip_allocation_id');
     const volumeSize = this.node.tryGetContext('volume_size') || 60;
+    const duratin = this.node.tryGetContext('spot_block_duration');
+    let spot_block_duration: spotone.BlockDuration;
+
+    switch(duratin) {
+      case '1': {
+        spot_block_duration = spotone.BlockDuration.ONE_HOUR;
+        break;
+      }
+      case '2': {
+        spot_block_duration = spotone.BlockDuration.TWO_HOURS;
+        break;
+      }
+      case '3': {
+        spot_block_duration = spotone.BlockDuration.THREE_HOURS;
+        break;
+      }
+      case '4': {
+        spot_block_duration = spotone.BlockDuration.FOUR_HOURS;
+        break;
+      }
+      case '5': {
+        spot_block_duration = spotone.BlockDuration.FIVE_HOURS;
+        break;
+      }
+      case '6': {
+        spot_block_duration = spotone.BlockDuration.SIX_HOURS;
+        break;
+      }
+      default: {
+        spot_block_duration = spotone.BlockDuration.SIX_HOURS;
+        break;
+      }
+    }
+
 
     const vpc = spotone.VpcProvider.getOrCreate(this);
 
     const fleet = new spotone.SpotFleet(this, 'SpotFleet', {
       vpc,
-      blockDuration: spotone.BlockDuration.SIX_HOURS,
+      blockDuration: spot_block_duration,
       eipAllocationId: eipAllocationId,
       defaultInstanceType: new ec2.InstanceType(instanceType),
       blockDeviceMappings: [

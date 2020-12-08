@@ -10,5 +10,6 @@ npx cdk deploy \
 -c use_default_vpc=1 \
 -c volume_size=100 \
 -c instance_type=m5.large \
+-c spot_block_duration=6 \
 -c eip_allocation_id=eipalloc-0133b41b7fdff3018
 ```
