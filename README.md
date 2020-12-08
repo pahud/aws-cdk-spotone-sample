@@ -11,5 +11,6 @@ npx cdk deploy \
 -c volume_size=100 \
 -c instance_type=m5.large \
 -c spot_block_duration=6 \
+-c ssh_key_name=aws-pahud \
 -c eip_allocation_id=eipalloc-0133b41b7fdff3018
 ```

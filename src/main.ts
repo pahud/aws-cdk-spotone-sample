@@ -10,6 +10,7 @@ export class Demo extends cdk.Construct {
     const eipAllocationId = this.node.tryGetContext('eip_allocation_id');
     const volumeSize = this.node.tryGetContext('volume_size') || 60;
     const duratin = this.node.tryGetContext('spot_block_duration');
+    const keyName = this.node.tryGetContext('ssh_key_name');
     let spot_block_duration: spotone.BlockDuration;
 
     switch(duratin) {
@@ -51,6 +52,7 @@ export class Demo extends cdk.Construct {
       blockDuration: spot_block_duration,
       eipAllocationId: eipAllocationId,
       defaultInstanceType: new ec2.InstanceType(instanceType),
+      keyName,
       blockDeviceMappings: [
         {
           deviceName: '/dev/xvda',
