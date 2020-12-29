@@ -1,11 +1,11 @@
+import * as ec2 from '@aws-cdk/aws-ec2';
 import * as cdk from '@aws-cdk/core';
 import * as spotone from 'cdk-spot-one';
-import * as ec2 from '@aws-cdk/aws-ec2';
 
 
 export class Demo extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string) {
-    super(scope, id)
+    super(scope, id);
     const instanceType = this.node.tryGetContext('instance_type') || 't3.large';
     const eipAllocationId = this.node.tryGetContext('eip_allocation_id');
     const volumeSize = this.node.tryGetContext('volume_size') || 60;
@@ -13,7 +13,7 @@ export class Demo extends cdk.Construct {
     const keyName = this.node.tryGetContext('ssh_key_name');
     let spot_block_duration: spotone.BlockDuration;
 
-    switch(duratin) {
+    switch (duratin) {
       case '1': {
         spot_block_duration = spotone.BlockDuration.ONE_HOUR;
         break;
