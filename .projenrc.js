@@ -6,10 +6,10 @@ const project = new AwsCdkTypeScriptApp({
   cdkDependencies: [
     '@aws-cdk/aws-ec2',
   ],
-  deps: [ 'cdk-spot-one' ],
+  deps: ['cdk-spot-one'],
   dependabot: false,
 });
 
-project.gitignore.exclude('cdk.context.json')
+project.gitignore.exclude('cdk.context.json');
 
 project.synth();
