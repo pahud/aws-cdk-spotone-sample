@@ -1,6 +1,6 @@
 const { AwsCdkTypeScriptApp } = require('projen');
 
-const AUTOMATION_TOKEN = 'GITHUB_TOKEN';
+const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
 
 const project = new AwsCdkTypeScriptApp({
   cdkVersion: '1.80.0',
@@ -17,8 +17,8 @@ workflow = project.github.addWorkflow('ProjenYarnUpgrade');
 
 workflow.on({
   schedule: [{
-    cron: '11 0 * * *',
-  }], // 0:11am every day
+    cron: '11 0 * * 0',
+  }], 
   workflow_dispatch: {}, // allow manual triggering
 });
 
