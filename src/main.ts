@@ -2,7 +2,6 @@ import * as ec2 from '@aws-cdk/aws-ec2';
 import * as cdk from '@aws-cdk/core';
 import * as spotone from 'cdk-spot-one';
 
-
 export class Demo extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string) {
     super(scope, id);
@@ -11,9 +10,31 @@ export class Demo extends cdk.Construct {
     const volumeSize = this.node.tryGetContext('volume_size') || 60;
     const duratin = this.node.tryGetContext('spot_block_duration');
     const keyName = this.node.tryGetContext('ssh_key_name');
+    const instanceInterruptionBehavior = this.node.tryGetContext('instance_interruption_behavior') || spotone.InstanceInterruptionBehavior.TERMINATE;
     let spot_block_duration: spotone.BlockDuration;
+    let instance_interrupton_behavior: spotone.InstanceInterruptionBehavior;
+
+
+    switch (instanceInterruptionBehavior) {
+      case 'stop': {
+        instance_interrupton_behavior = spotone.InstanceInterruptionBehavior.STOP;
+        break;
+      }
+      case 'hibernate': {
+        instance_interrupton_behavior = spotone.InstanceInterruptionBehavior.HIBERNATE;
+        break;
+      }
+      default: {
+        instance_interrupton_behavior = spotone.InstanceInterruptionBehavior.TERMINATE;
+        break;
+      }
+    }
 
     switch (duratin) {
+      case '0': {
+        spot_block_duration = spotone.BlockDuration.NONE;
+        break;
+      }
       case '1': {
         spot_block_duration = spotone.BlockDuration.ONE_HOUR;
         break;
@@ -44,7 +65,6 @@ export class Demo extends cdk.Construct {
       }
     }
 
-
     const vpc = spotone.VpcProvider.getOrCreate(this);
 
     const fleet = new spotone.SpotFleet(this, 'SpotFleet', {
@@ -52,7 +72,9 @@ export class Demo extends cdk.Construct {
       blockDuration: spot_block_duration,
       eipAllocationId: eipAllocationId,
       defaultInstanceType: new ec2.InstanceType(instanceType),
+      instanceInterruptionBehavior: instance_interrupton_behavior,
       keyName,
+      terminateInstancesWithExpiration: false,
       blockDeviceMappings: [
         {
           deviceName: '/dev/xvda',

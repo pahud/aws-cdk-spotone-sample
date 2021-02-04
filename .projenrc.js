@@ -10,6 +10,7 @@ const project = new AwsCdkTypeScriptApp({
   ],
   deps: ['cdk-spot-one'],
   dependabot: false,
+  defaultReleaseBranch: 'main',
 });
 
 // create a custom projen and yarn upgrade workflow
