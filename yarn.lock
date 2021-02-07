@@ -1683,9 +1683,9 @@ cdk-assets@1.88.0:
     yargs "^16.2.0"
 
 cdk-spot-one@^0.6.139:
-  version "0.6.141"
-  resolved "https://registry.yarnpkg.com/cdk-spot-one/-/cdk-spot-one-0.6.141.tgz#692ab301e6f17312c57617848638ced211159827"
-  integrity sha512-/Q1JPcaB6MSpCfmzKqR4HELV+X6TGcHdMm2KGMUQ3AO0Epp5o5I62Gk7iBBqBX6k+kZInDqhyHYKfZgqArYndg==
+  version "0.6.142"
+  resolved "https://registry.yarnpkg.com/cdk-spot-one/-/cdk-spot-one-0.6.142.tgz#9d8b3cb7c4daac108bb03db9f5432fd9d581b6f4"
+  integrity sha512-M2DdNOBOmdQht4PX9rqUh4dlX/217lLr7vzmvBrEhXFNtwlf3i5xIfpJzKRuTPSg/7TZ7s3mOFp7uoIvc/M/Qw==
   dependencies:
     "@aws-cdk/aws-ec2" "^1.77.0"
     "@aws-cdk/aws-iam" "^1.77.0"
@@ -6443,9 +6443,9 @@ typescript@^3.9.5:
   integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
 
 uglify-js@^3.1.4:
-  version "3.12.6"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.12.6.tgz#f884584fcc42e10bca70db5cb32e8625c2c42535"
-  integrity sha512-aqWHe3DfQmZUDGWBbabZ2eQnJlQd1fKlMUu7gV+MiTuDzdgDw31bI3wA2jLLsV/hNcDP26IfyEgSVoft5+0SVw==
+  version "3.12.7"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.12.7.tgz#be4f06142a67bd91ef868b4e111dc241e151bff3"
+  integrity sha512-SIZhkoh+U/wjW+BHGhVwE9nt8tWJspncloBcFapkpGRwNPqcH8pzX36BXe3TPBjzHWPMUZotpCigak/udWNr1Q==
 
 union-value@^1.0.0:
   version "1.0.1"
