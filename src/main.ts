@@ -10,6 +10,7 @@ export class Demo extends cdk.Construct {
     const volumeSize = this.node.tryGetContext('volume_size') || 60;
     const duratin = this.node.tryGetContext('spot_block_duration');
     const keyName = this.node.tryGetContext('ssh_key_name');
+    const instanceOnly = this.node.tryGetContext('instance_only');
     const instanceInterruptionBehavior = this.node.tryGetContext('instance_interruption_behavior') || spotone.InstanceInterruptionBehavior.TERMINATE;
     let spot_block_duration: spotone.BlockDuration;
     let instance_interrupton_behavior: spotone.InstanceInterruptionBehavior;
@@ -67,27 +68,34 @@ export class Demo extends cdk.Construct {
 
     const vpc = spotone.VpcProvider.getOrCreate(this);
 
-    const fleet = new spotone.SpotFleet(this, 'SpotFleet', {
-      vpc,
-      blockDuration: spot_block_duration,
-      eipAllocationId: eipAllocationId,
-      defaultInstanceType: new ec2.InstanceType(instanceType),
-      instanceInterruptionBehavior: instance_interrupton_behavior,
-      keyName,
-      terminateInstancesWithExpiration: false,
-      blockDeviceMappings: [
-        {
-          deviceName: '/dev/xvda',
-          ebs: {
-            volumeSize,
+    if (instanceOnly) {
+      new spotone.SpotInstance(this, 'SpotInstance', {
+        vpc,
+        defaultInstanceType: new ec2.InstanceType(instanceType),
+        keyName,
+      });
+    } else {
+      const fleet = new spotone.SpotFleet(this, 'SpotFleet', {
+        vpc,
+        blockDuration: spot_block_duration,
+        eipAllocationId: eipAllocationId,
+        defaultInstanceType: new ec2.InstanceType(instanceType),
+        instanceInterruptionBehavior: instance_interrupton_behavior,
+        keyName,
+        terminateInstancesWithExpiration: false,
+        blockDeviceMappings: [
+          {
+            deviceName: '/dev/xvda',
+            ebs: {
+              volumeSize,
+            },
           },
-        },
-      ],
-    });
-
-    const expireAfter = this.node.tryGetContext('expire_after');
-    if (expireAfter) {
-      fleet.expireAfter(cdk.Duration.hours(expireAfter));
+        ],
+      });
+      const expireAfter = this.node.tryGetContext('expire_after');
+      if (expireAfter) {
+        fleet.expireAfter(cdk.Duration.hours(expireAfter));
+      }
     }
   }
 }
