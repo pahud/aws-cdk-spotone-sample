@@ -5,6 +5,8 @@ A sample CDK application to create one durable spot instance with [cdk-spot-one]
 
 # sample
 
+Create one instance with spot fleet and block duration:
+
 ```sh
 npx cdk deploy \
 -c use_default_vpc=1 \
@@ -15,6 +17,15 @@ npx cdk deploy \
 -c eip_allocation_id=eipalloc-0133b41b7fdff3018
 ```
 
+Create single spot instance only(no fleet):
+
+```sh
+npx cdk deploy \
+-c use_default_vpc=1 \
+-c instance_only=1
+```
+
+
 # yarn commands
 
 To simply create a default spot instance in your default VPC
@@ -24,4 +35,4 @@ To simply create a default spot instance in your default VPC
 $ yarn createinstance:diff
 # create it
 $ yarn createinstance
-```
+

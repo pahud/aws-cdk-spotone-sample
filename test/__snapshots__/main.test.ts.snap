@@ -98,7 +98,7 @@ Object {
             },
           ],
           "TargetCapacity": 1,
-          "TerminateInstancesWithExpiration": true,
+          "TerminateInstancesWithExpiration": false,
         },
       },
       "Type": "AWS::EC2::SpotFleet",
