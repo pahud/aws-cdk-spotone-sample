@@ -69,15 +69,16 @@ Object {
               "Arn",
             ],
           },
+          "InstanceInterruptionBehavior": "terminate",
           "LaunchTemplateConfigs": Array [
             Object {
               "LaunchTemplateSpecification": Object {
                 "LaunchTemplateId": Object {
-                  "Ref": "DemoSpotFleetLaunchTemplate12C3C332",
+                  "Ref": "DemoSpotFleetLaunchTemplate4607B278",
                 },
                 "Version": Object {
                   "Fn::GetAtt": Array [
-                    "DemoSpotFleetLaunchTemplate12C3C332",
+                    "DemoSpotFleetLaunchTemplate4607B278",
                     "LatestVersionNumber",
                   ],
                 },
@@ -103,14 +104,6 @@ Object {
       "Type": "AWS::EC2::SpotFleet",
     },
     "DemoSpotFleetEIPC2F4D0D5": Object {
-      "Properties": Object {
-        "InstanceId": Object {
-          "Fn::GetAtt": Array [
-            "DemoSpotFleetSpotFleetInstances2AF03E58",
-            "InstanceId",
-          ],
-        },
-      },
       "Type": "AWS::EC2::EIP",
     },
     "DemoSpotFleetFleetRoleB2408E98": Object {
@@ -240,7 +233,7 @@ Object {
       },
       "Type": "AWS::Lambda::Function",
     },
-    "DemoSpotFleetLaunchTemplate12C3C332": Object {
+    "DemoSpotFleetLaunchTemplate4607B278": Object {
       "Properties": Object {
         "LaunchTemplateData": Object {
           "BlockDeviceMappings": Array [
@@ -284,7 +277,7 @@ Object {
               "Tags": Array [
                 Object {
                   "Key": "Name",
-                  "Value": "test/spotFleet/SpotFleet",
+                  "Value": "test/LaunchTemplate",
                 },
               ],
             },
@@ -1104,7 +1097,7 @@ service docker start",
             "Arn",
           ],
         },
-        "Runtime": "nodejs10.x",
+        "Runtime": "nodejs12.x",
       },
       "Type": "AWS::Lambda::Function",
     },

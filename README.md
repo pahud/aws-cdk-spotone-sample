@@ -14,3 +14,14 @@ npx cdk deploy \
 -c ssh_key_name=aws-pahud \
 -c eip_allocation_id=eipalloc-0133b41b7fdff3018
 ```
+
+# yarn commands
+
+To simply create a default spot instance in your default VPC
+
+```sh
+# preview the diff 
+$ yarn createinstance:diff
+# create it
+$ yarn createinstance
+```

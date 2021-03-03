@@ -10,6 +10,9 @@ const project = new AwsCdkTypeScriptApp({
   dependabot: false,
 });
 
-project.gitignore.exclude('cdk.context.json')
+project.setScript('createinstance:diff', 'npx cdk diff -c use_default_vpc=1 -c instance_only=1');
+project.setScript('createinstance', 'npx cdk deploy -c use_default_vpc=1 -c instance_only=1');
+
+project.gitignore.exclude('cdk.context.json');
 
 project.synth();
