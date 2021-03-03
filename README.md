@@ -24,3 +24,15 @@ npx cdk deploy \
 -c use_default_vpc=1 \
 -c instance_only=1
 ```
+
+
+# yarn commands
+
+To simply create a default spot instance in your default VPC
+
+```sh
+# preview the diff 
+$ yarn createinstance:diff
+# create it
+$ yarn createinstance
+
