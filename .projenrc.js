@@ -1,4 +1,6 @@
-const { AwsCdkTypeScriptApp } = require('projen');
+const { AwsCdkTypeScriptApp, DependenciesUpgradeMechanism } = require('projen');
+
+const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
 
 const project = new AwsCdkTypeScriptApp({
   cdkVersion: '1.80.0',
@@ -7,7 +9,16 @@ const project = new AwsCdkTypeScriptApp({
     '@aws-cdk/aws-ec2',
   ],
   deps: ['cdk-spot-one'],
-  dependabot: false,
+  depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
+    workflowOptions: {
+      labels: ['auto-approve', 'auto-merge'],
+      secret: AUTOMATION_TOKEN,
+    },
+  }),
+  autoApproveOptions: {
+    secret: 'GITHUB_TOKEN',
+    allowedUsernames: ['pahud'],
+  },
   defaultReleaseBranch: 'main',
 });
 
