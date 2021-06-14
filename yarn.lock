@@ -1838,10 +1838,10 @@ cdk-assets@1.108.1:
     glob "^7.1.7"
     yargs "^16.2.0"
 
-cdk-spot-one@^0.6.175:
-  version "0.6.175"
-  resolved "https://registry.yarnpkg.com/cdk-spot-one/-/cdk-spot-one-0.6.175.tgz#003493626eea8f871d10dd818d90bef8d58433ca"
-  integrity sha512-Bq1Y70UlOgigKY93JI1+fqKL1qijUJyA73VXVHuWsmW6JbfPDU9fgYvgyAjHY3Z+AT4nuerVPkUsybmTg03j5Q==
+cdk-spot-one@^0.6.176:
+  version "0.6.176"
+  resolved "https://registry.yarnpkg.com/cdk-spot-one/-/cdk-spot-one-0.6.176.tgz#17c8c490595591620da6f3a00c0d9b1d19f6d672"
+  integrity sha512-5dsStVt+fB0AzrtdcW4X/CqB566UlicxastBvttip5pO47GCs2YqHPEZ7llDNbajDbKYp0uIoSmm0wlCQIqiWA==
   dependencies:
     "@aws-cdk/aws-ec2" "^1.77.0"
     "@aws-cdk/aws-iam" "^1.77.0"
@@ -2085,9 +2085,9 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
 constructs@^3.3.69:
-  version "3.3.77"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.77.tgz#7c2d8eb9758a9a0c1e7f194410a19a1f6e474008"
-  integrity sha512-A9xWepIkiED0baaEWxokUvRnPrxcAwoCsyIPDAJ3VqQ90juiIHQ0gkW9GX0nG6c+Go5l1dL5FZIFZBeayx+xIg==
+  version "3.3.79"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-3.3.79.tgz#8b59b2f36a77c911ea16670cb39421492ba5af31"
+  integrity sha512-QvWSxLSDDdyduoXMtrUekq6aEQVWVNoQ0PiNkCQg9bJDL8QYGRqGv+8A+bwBQlVUjUOZ9sORDP4hF00CVQurlA==
 
 convert-source-map@^1.4.0, convert-source-map@^1.6.0, convert-source-map@^1.7.0:
   version "1.7.0"
