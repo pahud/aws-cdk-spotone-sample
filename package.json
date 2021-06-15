@@ -24,8 +24,8 @@
   "devDependencies": {
     "@types/jest": "^26.0.23",
     "@types/node": "^10.17.0",
-    "@typescript-eslint/eslint-plugin": "^4.26.1",
-    "@typescript-eslint/parser": "^4.26.1",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
     "aws-cdk": "^1.80.0",
     "eslint": "^7.28.0",
     "eslint-import-resolver-node": "^0.3.4",
@@ -44,7 +44,7 @@
     "@aws-cdk/assert": "^1.80.0",
     "@aws-cdk/aws-ec2": "^1.80.0",
     "@aws-cdk/core": "^1.80.0",
-    "cdk-spot-one": "^0.6.176"
+    "cdk-spot-one": "^0.6.177"
   },
   "bundledDependencies": [],
   "license": "Apache-2.0",
