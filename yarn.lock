@@ -1856,10 +1856,10 @@ cdk-assets@1.114.0:
     mime "^2.5.2"
     yargs "^16.2.0"
 
-cdk-spot-one@^0.6.210:
-  version "0.6.210"
-  resolved "https://registry.yarnpkg.com/cdk-spot-one/-/cdk-spot-one-0.6.210.tgz#e6b7388c1f0eb2ac5118866271a65b5c4a111092"
-  integrity sha512-9fxbzHW1MQSzJ8QqMdcw3qEMNbR2DiD9QqVfvnLbNVM+H7VqXJRgYwtiTi+0ERnNtjQOA3ZqPc6YquXXWc4whQ==
+cdk-spot-one@^0.6.211:
+  version "0.6.211"
+  resolved "https://registry.yarnpkg.com/cdk-spot-one/-/cdk-spot-one-0.6.211.tgz#aa65e7e1f02bb468506ceb49ca09be0cd05a8509"
+  integrity sha512-6wEukp9ftV2EN/fidsuMSmo1+XvpPy76EUF3ciq1OPiwzQSCbog1TYGHLBXde+2lLlKvUL4ZlQ1rhMTdXLhoyQ==
   dependencies:
     "@aws-cdk/aws-ec2" "^1.77.0"
     "@aws-cdk/aws-iam" "^1.77.0"
